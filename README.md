@@ -4,8 +4,9 @@
 
 # About
 
-Quick and dirty Python script to copy ROMs files from local folder to mounted SD card (to be placed handheld retro
-consoles, such as the RG351M).
+Quick and dirty Python script to copy ROMs files from local folder to mounted SD card (to be placed in handheld retro
+consoles, such as the Anbernic RG351M).
 
-Compare the source and target folder and output a `rsync` command for each file that exists in the source folder, but
-not in the target folder. The script only adds files.
+Compare the source and target folder and output a list of `rsync` commands, one for each file that exists in the source
+folder, but not in the target folder. Files are filtered by extension (to avoid confusion with saved states). The script
+only adds files.

@@ -7,7 +7,7 @@ def main():
         print(key + ' -> ' + str(extensions_dict[key]))
 
     source_rom_folder = '/home/benoit/roms/'
-    target_roms_folder = '/media/benoit/ROMS/'
+    target_roms_folder = '/media/benoit/EASYROMS/'
     source_files = list_game_files(source_rom_folder)
     target_files = list_game_files(target_roms_folder)
     for file in source_files:
