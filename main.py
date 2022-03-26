@@ -2,8 +2,11 @@ import os
 
 
 def main():
-    source_folder = '/home/benoit/roms/'
-    source_files = list_game_files(source_folder)
+    map = parse_extensions()
+    for key in map:
+        print(key + ' -> ' + str(map[key]))
+
+    source_files = list_game_files('/home/benoit/roms/')
     for file in source_files:
         print(file)
 
@@ -18,6 +21,7 @@ def list_game_files(folder):
             files = list_game_files_console_folder(folder + console_name, extensions_dict[console_name])
             for file in files:
                 result.append(folder + console_name + '/' + file)
+    result.sort()
     return result
 
 

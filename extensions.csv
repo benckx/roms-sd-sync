@@ -21,7 +21,7 @@ cps3;.zip,.ZIP,.7z,.7Z,.cue,.CUE
 daphne;.daphne,.DAPHNE
 doom;.wad,.WAD,.sh,.SH
 dos;.dosz,.DOSZ,.exe,.EXE,.com,.COM,.bat,.BAT,.conf,.CONF,.cue,.CUE,.iso,.ISO,.zip,.ZIP
-dreamcast;.7z,.7Z,.gdi,.GDI,.cdi,.CDI,.cue,.CUE,.chd,.CHD
+dreamcast;.7z,.7Z,.gdi,.GDI,.cdi,.CDI,.cue,.CUE,.chd,.CHD,.bin
 easyrpg;.easyrpg,.EASYRPG,(.ldb,.LDB,prior,to,7/28/2021,update)
 fds;.nes,.NES,.unif,.UNIF,.unf,.UNF,.fds,.FDS,.zip,.ZIP,.7z,.7Z
 gameandwatch;.mgw,.MGW
@@ -58,14 +58,14 @@ pico-8/carts;.png,.PNG,.p8,.P8
 pokemonmini;.min,.MIN,.zip,.ZIP
 psp;.iso,.ISO,.cso,.CSO,.pbp,.PBP
 pspminis;.iso,.ISO,.cso,.CSO,.pbp,.PBP
-psx;.cue,.CUE,.img,.IMG,.mdf,.MDF,.pbp,.PBP,.toc,.TOC,.cbn,.CBN,.m3u,.M3U,.ccd,.CCD,.chd,.CHD,.zip,.ZIP,.7z,.7Z,.iso,.ISO
+psx;.cue,.CUE,.img,.IMG,.mdf,.MDF,.pbp,.PBP,.toc,.TOC,.cbn,.CBN,.m3u,.M3U,.ccd,.CCD,.chd,.CHD,.zip,.ZIP,.7z,.7Z,.iso,.ISO,.bin
 saturn;.img,.IMG,.cue,.CUE,.chd,.CHD,.iso,.ISO,.m3u,.M3U
 scummvm;.scummvm,.SCUMMVM
 sega32x;.32x,.32X,.7z,.7Z,.bin,.BIN,.md,.MD,.smd,.SMD,.zip,.ZIP
 segacd;.bin,.BIN,.chd,.CHD,.cue,.CUE,.iso,.ISO
 sg-1000;.7z,.7Z,.bin,.BIN,.sg,.SG,.zip,.ZIP
 sgb;.gb,.GB,.gbc,.GBC,.dmg,.DMG,.zip,.ZIP,.7z,.7Z
-snes or sfc;.sfc,.SFC,.smc,.SMC,.zip,.ZIP,.7z,.7Z
+snes;.sfc,.SFC,.smc,.SMC,.zip,.ZIP,.7z,.7Z
 snes-hacks;.smc,.SMC,.fig,.FIG,.bs,.BS,.st,.ST,.sfc,.SFC,.gd3,.GD3,.gd7,.GD7,.dx2,.DX2,.bsx,.BSX,.swc,.SWC,.zip,.ZIP,.7z,.7Z
 snesmsu1;.smc,.SMC,.sfc,.SFC,.zip,.ZIP,.7z,.7Z
 solarus;.solarus,.SOLARUS,.zip,.ZIP
