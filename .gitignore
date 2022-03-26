@@ -20,3 +20,4 @@ localCache
 __pycache__/
 venv/
 output/
+*.sh

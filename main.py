@@ -16,10 +16,11 @@ def main():
         print("(target)" + file)
 
     commands = generate_commands(source_files, target_files, target_roms_folder)
+    os.remove('sync_roms.sh')
     output_file = open('sync_roms.sh', 'a')
     for command in commands:
         print(command)
-        output_file.write(command)
+        output_file.write(command + '\n')
     output_file.close()
 
 
