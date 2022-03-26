@@ -2,13 +2,42 @@ import os
 
 
 def main():
-    map = parse_extensions()
-    for key in map:
-        print(key + ' -> ' + str(map[key]))
+    extensions_dict = parse_extensions()
+    for key in extensions_dict:
+        print(key + ' -> ' + str(extensions_dict[key]))
 
-    source_files = list_game_files('/home/benoit/roms/')
+    source_rom_folder = '/home/benoit/roms/'
+    target_roms_folder = '/media/benoit/ROMS/'
+    source_files = list_game_files(source_rom_folder)
+    target_files = list_game_files(target_roms_folder)
     for file in source_files:
-        print(file)
+        print("(source)" + file)
+    for file in target_files:
+        print("(target)" + file)
+
+    commands = generate_commands(source_files, target_files, target_roms_folder)
+    output_file = open('sync_roms.sh', 'a')
+    for command in commands:
+        print(command)
+        output_file.write(command)
+    output_file.close()
+
+
+def generate_commands(source_files, target_files, target_roms_folder):
+    commands = []
+    target_keys = [file_comparison_key(x) for x in target_files]
+    for source_file in source_files:
+        key = file_comparison_key(source_file)
+        if not key in target_keys:
+            commands.append('rsync -av --progress "' + source_file + '" "' + target_roms_folder + key + '"')
+    return commands
+
+
+def file_comparison_key(file_name):
+    split = file_name.split('/')
+    console_name = split[-2]
+    file_name = split[-1]
+    return console_name + '/' + file_name
 
 
 def list_game_files(folder):
