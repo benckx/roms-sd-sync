@@ -3,21 +3,25 @@ import os
 
 def main():
     source_folder = '/home/benoit/roms/'
-    console_folders = next(os.walk(source_folder))[1]
+    source_files = list_game_files(source_folder)
+    for file in source_files:
+        print(file)
+
+
+def list_game_files(folder):
+    result = []
+    console_folders = next(os.walk(folder))[1]
     console_folders.sort()
-    print(console_folders)
-    extensions_csv = open('extensions.csv', 'r')
-    for line in extensions_csv:
-        split = line.split(";")
-        console_name = split[0]
-        if (console_name in console_folders):
-            console_folder = source_folder + console_name
-            console_extensions = parse_extensions(split[1])
-            print(list_game_files(console_folder, console_extensions))
-            # print(console_name + ' -> ' + str(list_extensions(split[1])))
+    extensions_dict = parse_extensions()
+    for console_name in extensions_dict:
+        if console_name in console_folders:
+            files = list_game_files_console_folder(folder + console_name, extensions_dict[console_name])
+            for file in files:
+                result.append(folder + console_name + '/' + file)
+    return result
 
 
-def list_game_files(console_folder, extensions):
+def list_game_files_console_folder(console_folder, extensions):
     result = []
     for x in os.walk(console_folder):
         file_names = x[2]
@@ -29,7 +33,18 @@ def list_game_files(console_folder, extensions):
     return result
 
 
-def parse_extensions(extension_line):
+def parse_extensions():
+    result = {}
+    extensions_csv = open('extensions.csv', 'r')
+    for line in extensions_csv:
+        split = line.split(";")
+        console_name = split[0]
+        console_extensions = parse_extensions_line(split[1])
+        result[console_name] = console_extensions
+    return result
+
+
+def parse_extensions_line(extension_line):
     result = []
     split = extension_line.split(',')
     for item in split:
