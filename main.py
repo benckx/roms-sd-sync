@@ -35,6 +35,11 @@ def generate_commands(source_files, target_files, target_roms_folder):
 
 
 def file_comparison_key(file_name):
+    """
+    :return: str
+        Strip prefix of file name and keep only e.g. 'console/file_name.bin'
+        This allows comparison between 2 folders with identical structures but different locations
+    """
     split = file_name.split('/')
     console_name = split[-2]
     file_name = split[-1]
@@ -42,6 +47,10 @@ def file_comparison_key(file_name):
 
 
 def list_game_files(folder):
+    """
+    :return: array of str
+        File names of all ROMs in 'folder'
+    """
     result = []
     console_folders = next(os.walk(folder))[1]
     console_folders.sort()
@@ -56,6 +65,11 @@ def list_game_files(folder):
 
 
 def list_game_files_console_folder(console_folder, extensions):
+    """
+    :return: array of str
+        File names in the 'console_folder', filtered by 'extensions'
+        It doesn't consider sub-folders.
+    """
     result = []
     for x in os.walk(console_folder):
         file_names = x[2]
@@ -63,11 +77,16 @@ def list_game_files_console_folder(console_folder, extensions):
             extension = file_name.split('.')[-1]
             if extension in extensions:
                 result.append(file_name)
-
     return result
 
 
 def parse_extensions():
+    """
+    Parse extensions.csv file as a dict console_name -> valid extensions, e.g.:
+        dreamcast -> ['7z', 'gdi', 'cdi', 'cue', 'chd', 'bin']
+        gba -> ['gb', 'gbc', 'gba', 'zip', '7z']
+        megadrive -> ['mdx', 'md', 'smd', 'gen', 'bin', 'zip', '7z']
+    """
     result = {}
     extensions_csv = open('extensions.csv', 'r')
     for line in extensions_csv:
